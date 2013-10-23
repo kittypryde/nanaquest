@@ -32,6 +32,9 @@ public class MainMenu implements Screen {
 	//private BitmapFont white, black;
 	private Label heading;
 	final NanaQuest game;
+	private TextureAtlas warlockAtlas;
+	private Skin warlockSkin;
+	private ImageButton warlockButton;
 
 	
 	public MainMenu(final NanaQuest gam){
@@ -64,6 +67,9 @@ public class MainMenu implements Screen {
 		
 		atlas = new TextureAtlas("ui/buttontest.pack");
 			//Atlas defines regions of sprite image that will be created
+		warlockAtlas = new TextureAtlas("ui/warlockwhoa.pack");
+		warlockSkin = new Skin();
+		warlockSkin.addRegions(warlockAtlas);
 		skin = new Skin();
 		skin.addRegions(atlas);
 		//Create table
@@ -73,6 +79,9 @@ public class MainMenu implements Screen {
 		ImageButtonStyle imageButt = new ImageButtonStyle();
 		imageButt.up = skin.getDrawable("meggan1");
 		imageButt.down = skin.getDrawable("meggan2");
+		ImageButtonStyle warlockButt = new ImageButtonStyle();
+		warlockButt.up = warlockSkin.getDrawable("warlockwhoa");
+		warlockButt.down = warlockSkin.getDrawable("warlockwhoa2");
 		
 		megganButton = new ImageButton(imageButt);
 		megganButton.pad(10);
@@ -86,8 +95,24 @@ public class MainMenu implements Screen {
 		}
 		);
 		
+		warlockButton = new ImageButton(warlockButt);
+		warlockButton.pad(10);
+		
+		warlockButton.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y){
+				Gdx.app.exit();
+			}
+		}
+		);
+		
 		//Put stuff together/into the table
 		table.add(megganButton);
+		table.getCell(megganButton).padBottom(100);
+			//Add padding to cell containing megganButton
+		table.row();
+			//Next cells will be added to new row
+		table.add(warlockButton);
 		table.debug();
 			//Enables debug lines showing us where cells end 
 		stage.addActor(table);
