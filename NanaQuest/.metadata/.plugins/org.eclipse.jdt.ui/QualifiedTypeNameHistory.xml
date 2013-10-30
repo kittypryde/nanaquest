@@ -7,4 +7,6 @@
 <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.GL20"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.ui.ClickListener"/>
 <fullyQualifiedTypeName name="java.awt.event.InputEvent"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.InputProcessor"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Screen"/>
 </qualifiedTypeNameHistroy>

@@ -13,6 +13,7 @@ import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -27,9 +28,11 @@ public class Splash implements Screen{
 	private Sprite splash;
 	final NanaQuest game;
 	private TweenManager tweenManager;
+	final Preferences pref;
 	
-	public Splash(final NanaQuest gam){
+	public Splash(final NanaQuest gam, final Preferences prefer){
 		game = gam;
+		pref = prefer;
 	}
 	
 	@Override
@@ -66,7 +69,7 @@ public class Splash implements Screen{
 	
 		@Override
 		public void onEvent(int arg0, BaseTween<?> source) {
-			game.setScreen(new MainMenu(game));
+			game.setScreen(new MainMenu(game, pref));
 			
 			
 		}

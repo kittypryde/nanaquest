@@ -9,6 +9,7 @@ import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL10;
@@ -19,6 +20,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+/**
+ * SOURCES:
+ * 
+ * PAUSE: http://stackoverflow.com/questions/11466496/libgdx-game-how-to-display-pause-screen-when-user-click-on-pause-icon
+ */
+
 public class GameScreen implements Screen, InputProcessor {
 
 	private World 			world;
@@ -27,9 +34,14 @@ public class GameScreen implements Screen, InputProcessor {
 //	final NanaQuest game;
 	
 	private int width, height;
+	final Preferences pref;
 	
-	public GameScreen(){
-		
+	public static final int RUNNING = 0;
+	public static final int PAUSED = 0;
+	private int gamestatus;
+	
+	public GameScreen(final Preferences prefer){
+		pref = prefer;
 	}
 	
 	@Override
@@ -46,7 +58,17 @@ public class GameScreen implements Screen, InputProcessor {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+		
+		if(isPaused()){
+			//If pause button is pressed
+			pauseGame();
+		}		
+		
+		if (gamestatus == PAUSED) {
+			//draw pause screen
+		}
+			
+		
 		controller.update(delta);
 		renderer.render();
 	}
@@ -65,12 +87,12 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
+	
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -110,7 +132,7 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
+	
 		return false;
 	}
 
@@ -155,25 +177,36 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public boolean touchDragged(int x, int y, int pointer) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	public boolean touchMoved(int x, int y) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public boolean scrolled(int amount) {
-		// TODO Auto-generated method stub
+	
 		return false;
 	}
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
+	
 		return false;
+	}
+	
+	public boolean isPaused(){
+		//No arguments
+		//Returns boolean that says whether or not the pause button has been pressed
+		return true;
+	}
+	
+	public void pauseGame(){
+		//Sets current game status to pause
+		gamestatus = PAUSED;
 	}
 	
 

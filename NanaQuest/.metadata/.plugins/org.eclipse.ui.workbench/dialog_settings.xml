@@ -4,6 +4,8 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/Users/edenanbinder/Documents/School/Game Design/nq/nanaquest/NanaQuest/NanaQuest-android/assets/ui"/>
+			<item value="/Users/edenanbinder/Documents/School/Game Design/Placeholder Images/WarlockButton"/>
 			<item value="/Users/edenanbinder/Documents/School/Game Design/Placeholder Images/packerTest"/>
 			<item value="/Users/edenanbinder/Documents/School/Game Design/Placeholder Images/Planet Selection"/>
 			<item value="/Users/edenanbinder/Downloads/tween-engine-api-6.3.3"/>
@@ -36,6 +38,7 @@
 		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
+			<item value="com.android.ide.eclipse.wizards.category"/>
 		</list>
 	</section>
 </section>

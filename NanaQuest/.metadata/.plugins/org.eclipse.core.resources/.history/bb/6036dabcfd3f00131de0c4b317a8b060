@@ -1,0 +1,5 @@
+package net.obviam.nanaquest.screens;
+
+public class PauseTest implements Screen, InputProcessor{
+
+}
