@@ -1,7 +1,0 @@
-package net.obviam.nanaquest.fixingthings;
-
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-
-public class SkinFix extends Skin{
-
-}
