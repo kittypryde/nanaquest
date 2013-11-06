@@ -7,9 +7,11 @@ import net.obviam.nanaquest.model.Block;
 import net.obviam.nanaquest.model.Bob;
 import net.obviam.nanaquest.model.Enemy;
 import net.obviam.nanaquest.model.Enemy.State;
+import net.obviam.nanaquest.model.HealthBar;
 import net.obviam.nanaquest.model.Level;
 import net.obviam.nanaquest.model.World;
 import net.obviam.nanaquest.screens.GameScreen;
+import net.obviam.nanaquest.screens.PauseScreen;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -245,17 +247,15 @@ public class EnemyController {
 				}
 				
 				
-				// If enemy touches bob, restart game ***TEMPORARY***
-//				if (Enemy.enemyPositions.get(i).epsilonEquals(Bob.getPosition(), (float) 0.5) ) {
-//
-//					// Reset enemies
-//					for (int j = 0; j < Enemy.enemyPositions.size(); j++) {
-//						Enemy.removeEnemy(j);
-//					}
-//					
-//					// Reset game
-//					((Game) Gdx.app.getApplicationListener()).setScreen(new GameScreen());
-//				}
+				// If enemy touches bob, bob loses health **** FIX
+				if (Enemy.enemyPositions.get(i).epsilonEquals(Bob.getPosition(), (float) 0.5) ) {
+					
+					if (HealthBar.width > 0) {
+						HealthBar.width -= 0.001;
+					} else if (HealthBar.width <= 0){
+                        ((Game) Gdx.app.getApplicationListener()).setScreen(new PauseScreen());
+					}
+				}
 			}
 		}
 	}	

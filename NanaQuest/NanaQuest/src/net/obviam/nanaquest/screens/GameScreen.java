@@ -1,5 +1,6 @@
 package net.obviam.nanaquest.screens;
 
+import net.obviam.nanaquest.NanaQuest;
 import net.obviam.nanaquest.controller.BobController;
 import net.obviam.nanaquest.controller.EnemyController;
 import net.obviam.nanaquest.controller.ShipController;
@@ -48,6 +49,7 @@ public class GameScreen implements Screen, InputProcessor {
 		enemyController.update(delta);
 		shipController.update(delta);
 		renderer.render();
+		
 	}
 	
 	@Override
@@ -79,6 +81,8 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
+		if (keycode == Keys.SPACE)
+            ((Game) Gdx.app.getApplicationListener()).setScreen(new PauseScreen());
 		if (Ship.getState() == State.FLYING) {
 			if (keycode == Keys.LEFT) 
 				shipController.upPressed = true;
@@ -131,6 +135,9 @@ public class GameScreen implements Screen, InputProcessor {
 	public boolean touchDown(int x, int y, int pointer, int button) {
 		if (!Gdx.app.getType().equals(ApplicationType.Android))
 			return false;
+		if (y > renderer.cam.viewportHeight / 2) {
+            ((Game) Gdx.app.getApplicationListener()).setScreen(new PauseScreen());
+		}
 		if (x >= 1 && x <= 100 && y >= 500 && y <= 600) {
 			bobController.leftPressed();
 		}
@@ -194,3 +201,4 @@ public class GameScreen implements Screen, InputProcessor {
 	
 
 }
+

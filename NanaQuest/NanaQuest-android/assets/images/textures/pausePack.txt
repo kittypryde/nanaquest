@@ -1,0 +1,53 @@
+pausePack.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+main_menu_button_down.fw
+  rotate: false
+  xy: 608, 2
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
+pause_screen.fw
+  rotate: false
+  xy: 2, 104
+  size: 960, 640
+  orig: 960, 640
+  offset: 0, 0
+  index: -1
+resume_button.fw
+  rotate: false
+  xy: 2, 746
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
+exit_button_down.fw
+  rotate: false
+  xy: 204, 2
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
+main_menu_button.fw
+  rotate: false
+  xy: 406, 2
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
+resume_button_down.fw
+  rotate: false
+  xy: 204, 746
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
+exit_button.fw
+  rotate: false
+  xy: 2, 2
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1

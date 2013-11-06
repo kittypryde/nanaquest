@@ -9,7 +9,7 @@ public class Bob {
 		IDLE, WALKING, JUMPING, DYING, UNCONTROLLABLE
 	}
 	
-	public static final float SIZE = 4f; // half a unit
+	public static final float SIZE = 0.7f; // half a unit
 
 	public static Vector2 	position = new Vector2();
 	static Vector2 			velocity = new Vector2();

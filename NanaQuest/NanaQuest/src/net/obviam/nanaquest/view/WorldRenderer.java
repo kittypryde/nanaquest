@@ -2,6 +2,7 @@ package net.obviam.nanaquest.view;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.prefs.Preferences;
 
 import net.obviam.nanaquest.controller.BobController;
 import net.obviam.nanaquest.controller.EnemyController;
@@ -35,6 +36,9 @@ public class WorldRenderer {
 	private static final float CAMERA_HEIGHT = 14f;
 	private static final float RUNNING_FRAME_DURATION = 0.2f;
 	
+	/** Health Bar **/
+	HealthBar healthBar;
+	
 	/** Bullet stuff **/
 	private static final int BULLET_SIZE = 1;
 	public Vector2 bullet_pos;
@@ -56,8 +60,8 @@ public class WorldRenderer {
 	ShapeRenderer debugRenderer = new ShapeRenderer();
 
 	/** Textures **/
+	private Texture healthPoint;
 	private Texture shipStopTexture;
-	private Texture shipPlatform;
 	private Texture shipTexture;
 	private Texture background;
 	private Texture blockTexture;
@@ -146,8 +150,9 @@ public class WorldRenderer {
 		drawBlocks(); 		// Blocks
 		drawBob(); 			// Bob
 		drawEnemy();		// Enemies
-		drawShip();
+		drawShip();			// Ship
 		drawBullets(); 		// Bullets
+		drawHealthBar();	// Health Bar
 		drawButtons(); 		// Tablet Buttons
 
 		viewport.end();
@@ -177,6 +182,7 @@ public class WorldRenderer {
 		loadBobTextures();
 		loadEnemyTextures();
 			
+		healthPoint = new Texture (Gdx.files.internal("images/health_points.fw.png"));
 		shipTexture = new Texture (Gdx.files.internal("images/tempship.fw.png"));
 		shipStopTexture = new Texture (Gdx.files.internal("images/stop_flight.fw.png"));
 		background = new Texture (Gdx.files.internal("images/background_forest.png"));
@@ -322,6 +328,13 @@ public class WorldRenderer {
 			viewport.draw(Enemy.enemyFrames.get(i), Enemy.enemyPositions.get(i).x, Enemy.enemyPositions.get(i).y, Enemy.SIZE, Enemy.SIZE);
 		}
 	}
+	
+	private void drawHealthBar() {
+		HealthBar healthBar = new HealthBar();
+		
+		viewport.draw(healthPoint, cam.position.x - 5, cam.position.y + 5, (float) healthBar.width, 1);
+		
+	}
 
 	private void drawShip() {
 		// Ship
@@ -408,7 +421,7 @@ public class WorldRenderer {
 				for (int e = 0; e < Enemy.enemyPositions.size(); e++) {
 					if (Bullet.bulletPositions.size() == 0) {
 						continue;
-					} else if (Bullet.bulletPositions.get(i).epsilonEquals(Enemy.enemyPositions.get(e), (float) 0.3)) {
+					} else if (Bullet.bulletPositions.get(i).epsilonEquals(Enemy.enemyPositions.get(e), (float) 0.4)) {
 						Enemy.removeEnemy(e);
 						Bullet.removeBullet(i);
 						continue;
@@ -473,3 +486,4 @@ public class WorldRenderer {
 		}
 	}
 }
+

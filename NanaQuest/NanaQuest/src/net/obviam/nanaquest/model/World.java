@@ -9,9 +9,12 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 public class World {
-
+	
 	/** Our player controlled hero **/
 	Bob bob;
+	
+	/** Health Bar **/
+	HealthBar healthBar;
 	
 	/** Our enemies **/
 	Enemy enemy;
@@ -92,7 +95,10 @@ public class World {
 			enemy = new Enemy(new Vector2(30 + (i*2), 20));
 		}
 		
-		ship = new Ship(new Vector2(16, 1));
+
+		ship = new Ship(new Vector2(30, 1));
+		
+		healthBar = new HealthBar();
 		
 		level = new Level();
 	}
