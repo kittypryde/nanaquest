@@ -1,22 +1,16 @@
 package net.obviam.nanaquest.screens;
 
-import java.awt.Button;
-//import java.awt.event.InputEvent;
-
 import net.obviam.nanaquest.NanaQuest;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -26,22 +20,15 @@ public class MainMenu implements Screen {
         private Stage stage;
         private TextureAtlas atlas;
         private Skin skin;
-                //Appearance
-        private Table table;
-        private ImageButton megganButton;
-        Button buttonExit;
-        //private BitmapFont white, black;
-        private Label heading;
-        final NanaQuest game;
-        private TextureAtlas warlockAtlas;
-        private Skin warlockSkin;
-        private ImageButton warlockButton;
-        final Preferences pref;
-       
         
-        public MainMenu(final NanaQuest gam, final Preferences prefer){
-                game = gam;
-                pref = prefer;
+        //Appearance
+        private Table table;
+        private ImageButton startButton;
+        private ImageButton quitButton;
+        final NanaQuest 	game;
+        
+        public MainMenu(final NanaQuest g){
+                game = g;
         }
         @Override
         public void render(float delta) {
@@ -68,40 +55,42 @@ public class MainMenu implements Screen {
                 
                 Gdx.input.setInputProcessor(stage);
                 
-                atlas = new TextureAtlas("ui/buttontest.pack");
+                
+                atlas = new TextureAtlas(Gdx.files.internal("images/textures/menuPack.txt"));
                         //Atlas defines regions of sprite image that will be created
-                warlockAtlas = new TextureAtlas("ui/warlockwhoa.pack");
-                warlockSkin = new Skin();
-                warlockSkin.addRegions(warlockAtlas);
                 skin = new Skin();
                 skin.addRegions(atlas);
-                //Create table
+                
+                // Create table
                 table = new Table(skin);
-                table.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        //Create button
-                ImageButtonStyle imageButt = new ImageButtonStyle();
-                imageButt.up = skin.getDrawable("meggan1");
-                imageButt.down = skin.getDrawable("meggan2");
-                ImageButtonStyle warlockButt = new ImageButtonStyle();
-                warlockButt.up = warlockSkin.getDrawable("warlockwhoa");
-                warlockButt.down = warlockSkin.getDrawable("warlockwhoa2");
+                table.setBounds(0, 0, 960, 640);
                 
-                megganButton = new ImageButton(imageButt);
-                megganButton.pad(10);
+                // Start Button
+                ImageButtonStyle startB = new ImageButtonStyle();
+                startB.up = skin.getDrawable("start_button.fw");
+                startB.down = skin.getDrawable("start_button_down.fw");
                 
-                megganButton.addListener(new ClickListener(){
+                // Quit Button
+                ImageButtonStyle quitB = new ImageButtonStyle();
+                quitB.up = skin.getDrawable("quit_button.fw");
+                quitB.down = skin.getDrawable("quit_button_down.fw");
+                
+                startButton = new ImageButton(startB);
+                startButton.pad(10);
+                
+                startButton.addListener(new ClickListener(){
                         @Override
                         public void clicked(InputEvent event, float x, float y){
                                 //game.setScreen(new GameScreen());
-                                ((Game) Gdx.app.getApplicationListener()).setScreen(new GameScreen(pref));
+                                ((Game) Gdx.app.getApplicationListener()).setScreen(new GameScreen());
                         }
                 }
                 );
                 
-                warlockButton = new ImageButton(warlockButt);
-                warlockButton.pad(10);
+                quitButton = new ImageButton(quitB);
+                quitButton.pad(10);
                 
-                warlockButton.addListener(new ClickListener(){
+                quitButton.addListener(new ClickListener(){
                         @Override
                         public void clicked(InputEvent event, float x, float y){
                                 Gdx.app.exit();
@@ -109,15 +98,12 @@ public class MainMenu implements Screen {
                 }
                 );
                 
-                //Put stuff together/into the table
-                table.add(megganButton);
-                table.getCell(megganButton).padBottom(100);
-                        //Add padding to cell containing megganButton
-                table.row();
-                        //Next cells will be added to new row
-                table.add(warlockButton);
-                table.debug();
-                        //Enables debug lines showing us where cells end 
+                
+                // Add buttons
+                table.add(startButton);
+                table.add(quitButton);
+        //		table.debug();
+                // Add table to stage
                 stage.addActor(table);
         
         }

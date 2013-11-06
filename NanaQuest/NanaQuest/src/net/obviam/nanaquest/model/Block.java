@@ -7,6 +7,7 @@ public class Block {
 
 	public static final float SIZE = 1f;
 	
+	
 	Vector2 	position = new Vector2();
 	Rectangle 	bounds = new Rectangle();
 	

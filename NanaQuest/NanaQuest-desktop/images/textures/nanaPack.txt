@@ -1,0 +1,53 @@
+nanaPack.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+nana_jump_down
+  rotate: false
+  xy: 2, 2
+  size: 600, 782
+  orig: 600, 782
+  offset: 0, 0
+  index: -1
+nana_jump_up
+  rotate: false
+  xy: 604, 2
+  size: 600, 782
+  orig: 600, 782
+  offset: 0, 0
+  index: -1
+nana_run-02
+  rotate: false
+  xy: 2, 786
+  size: 600, 782
+  orig: 600, 782
+  offset: 0, 0
+  index: -1
+nana_run-03
+  rotate: false
+  xy: 604, 786
+  size: 600, 782
+  orig: 600, 782
+  offset: 0, 0
+  index: -1
+nana_run-04
+  rotate: false
+  xy: 1206, 786
+  size: 600, 782
+  orig: 600, 782
+  offset: 0, 0
+  index: -1
+nana_run-05
+  rotate: false
+  xy: 2, 1570
+  size: 600, 782
+  orig: 600, 782
+  offset: 0, 0
+  index: -1
+nana_run-01
+  rotate: false
+  xy: 1206, 2
+  size: 600, 782
+  orig: 600, 782
+  offset: 0, 0
+  index: -1

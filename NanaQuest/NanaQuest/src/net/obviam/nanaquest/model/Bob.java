@@ -6,26 +6,27 @@ import com.badlogic.gdx.math.Vector2;
 public class Bob {
 
 	public enum State {
-		IDLE, WALKING, JUMPING, DYING
+		IDLE, WALKING, JUMPING, DYING, UNCONTROLLABLE
 	}
 	
-	public static final float SIZE = 0.5f; // half a unit
+	public static final float SIZE = 4f; // half a unit
 
-	static Vector2 	position = new Vector2();
-	Vector2 	acceleration = new Vector2();
-	Vector2 	velocity = new Vector2();
-	Rectangle 	bounds = new Rectangle();
-	State		state = State.IDLE;
-	static boolean		facingLeft = true;
-	float		stateTime = 0;
-	boolean		longJump = false;
+	public static Vector2 	position = new Vector2();
+	static Vector2 			velocity = new Vector2();
+	static Vector2 			acceleration = new Vector2();
+	static boolean			facingLeft = true;
+	boolean					longJump = false;
+	float					stateTime = 0;
+	
+	static Rectangle 		bounds = new Rectangle();
+	static State					state = State.IDLE;
 
 	public Bob(Vector2 position) {
-		this.position = position;
-		this.bounds.x = position.x;
-		this.bounds.y = position.y;
-		this.bounds.height = SIZE;
-		this.bounds.width = SIZE;
+		Bob.position = position;
+		Bob.bounds.x = position.x;
+		Bob.bounds.y = position.y;
+		Bob.bounds.height = SIZE;
+		Bob.bounds.width = SIZE;
 	}
 
 	
@@ -33,19 +34,19 @@ public class Bob {
 		return facingLeft;
 	}
 
-	public void setFacingLeft(boolean facingLeft) {
-		this.facingLeft = facingLeft;
+	public static void setFacingLeft(boolean facingLeft) {
+		Bob.facingLeft = facingLeft;
 	}
 
 	public static Vector2 getPosition() {
 		return position;
 	}
 
-	public Vector2 getAcceleration() {
+	public static Vector2 getAcceleration() {
 		return acceleration;
 	}
 
-	public Vector2 getVelocity() {
+	public static Vector2 getVelocity() {
 		return velocity;
 	}
 
@@ -53,12 +54,12 @@ public class Bob {
 		return bounds;
 	}
 
-	public State getState() {
+	public static State getState() {
 		return state;
 	}
 	
-	public void setState(State newState) {
-		this.state = newState;
+	public static void setState(State newState) {
+		state = newState;
 	}
 
 	public float getStateTime() {
@@ -75,10 +76,10 @@ public class Bob {
 	}
 
 
-	public void setPosition(Vector2 position) {
-		this.position = position;
-		this.bounds.setX(position.x);
-		this.bounds.setY(position.y);
+	public static void setPosition(Vector2 position) {
+		Bob.position = position;
+		bounds.setX(position.x);
+		bounds.setY(position.y);
 	}
 
 
@@ -93,7 +94,7 @@ public class Bob {
 
 
 	public void setBounds(Rectangle bounds) {
-		this.bounds = bounds;
+		Bob.bounds = bounds;
 	}
 
 
@@ -103,9 +104,6 @@ public class Bob {
 
 
 	public void update(float delta) {
-//		position.add(velocity.tmp().mul(delta));
-//		bounds.x = position.x;
-//		bounds.y = position.y;
 		stateTime += delta;
 	}
 	

@@ -7,7 +7,7 @@ import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
 public class NanaQuestActivity extends AndroidApplication {
-	
+	 
 	
     /** Called when the activity is first created. */
     @Override

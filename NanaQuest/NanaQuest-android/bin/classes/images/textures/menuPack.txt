@@ -1,0 +1,39 @@
+menuPack.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+start_button_down.fw
+  rotate: false
+  xy: 2, 62
+  size: 300, 100
+  orig: 300, 100
+  offset: 0, 0
+  index: -1
+start_button.fw
+  rotate: false
+  xy: 304, 62
+  size: 178, 68
+  orig: 300, 100
+  offset: 60, 17
+  index: -1
+quit_button.fw
+  rotate: false
+  xy: 350, 2
+  size: 132, 58
+  orig: 300, 100
+  offset: 84, 19
+  index: -1
+quit_button_down.fw
+  rotate: false
+  xy: 2, 164
+  size: 300, 100
+  orig: 300, 100
+  offset: 0, 0
+  index: -1
+MenuTitle.fw
+  rotate: false
+  xy: 2, 2
+  size: 346, 58
+  orig: 400, 100
+  offset: 30, 25
+  index: -1
