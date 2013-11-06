@@ -13,6 +13,8 @@ public class NanaQuest extends Game {
 	@Override
 	public void create() {
 		
+		// poop
+		
 //		batch = new SpriteBatch();
 //		setScreen(new Splash(this));
 		setScreen(new GameScreen());
