@@ -4,7 +4,11 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
-			<item value="/Applications/adt-bundle-mac-x86_64-20130729/sdk/platforms/android-7"/>
+			<item value="/Users/edenanbinder/Downloads/libgdx-0.9.9/extensions/gdx-freetype"/>
+			<item value="/Users/edenanbinder/Downloads/theleagueof-knewave-f335d5f 3"/>
+			<item value="/Users/edenanbinder/Downloads/libgdx-nightly-latest (1)/extensions/gdx-freetype/armeabi-v7a"/>
+			<item value="/Users/edenanbinder/Downloads/libgdx-nightly-latest (1)/extensions/gdx-freetype"/>
+			<item value="/Users/edenanbinder/Documents/School/Game Design/Dev Tools/freetype-2.5.0.1"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">

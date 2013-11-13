@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -17,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 public class PauseScreen implements Screen {
 	
@@ -35,7 +37,10 @@ public class PauseScreen implements Screen {
     private ImageButton resumeButton;
     private ImageButton menuButton;
     private ImageButton exitButton;
-
+    private BitmapFont font;
+    public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    FreeTypeFontGenerator generator;
+    
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);
@@ -63,9 +68,12 @@ public class PauseScreen implements Screen {
         stage = new Stage(960, 640, true);
         Gdx.input.setInputProcessor(stage);
         
-
+        generator = new FreeTypeFontGenerator(Gdx.files.internal("ui/knewave.ttf"));
+        font = generator.generateFont(12);
+      //  font = FreeTypeFontGenerator.createBitmapFont(Gdx.files.internal("ui/knewave.ttf"), FONT_CHARACTERS, 12.5f, 7.5f, 1.0f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		font.draw(pauseBatch, "wowie zowie", 0, 10);
         
-		
+        
         atlas = new TextureAtlas(Gdx.files.internal("images/textures/pausePack.txt"));
         skin = new Skin();
         skin.addRegions(atlas);
