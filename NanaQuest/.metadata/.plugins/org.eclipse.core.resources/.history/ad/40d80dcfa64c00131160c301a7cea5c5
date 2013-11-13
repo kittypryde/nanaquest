@@ -23,7 +23,6 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
@@ -35,19 +34,13 @@ public class GameScreen implements Screen, InputProcessor {
 	private EnemyController 	enemyController;
 	private ShipController 		shipController;
 	
-//	public static final int GAME_RUNNING = 0;
-//	public static final int GAME_PAUSED = 0;
-//	private int gamestatus;
-	private boolean paused;
+	public static final int GAME_RUNNING = 0;
+	public static final int GAME_PAUSED = 0;
+	private int gamestatus;
 	
-    private BitmapFont font;
-    public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    FreeTypeFontGenerator generator;
-    private SpriteBatch pauseBatch;
-	
-//	public GameScreen(NanaQuest nq){
-//		
-//	}
+	public GameScreen(NanaQuest nq){
+		
+	}
 	
 	@Override
 	public void show() {
@@ -63,19 +56,15 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public void render(float delta) {
-		
-		if (!paused){
-			Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);
-			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-			bobController.update(delta);
-			enemyController.update(delta);
-			shipController.update(delta);
-			renderer.render();
-		}
-	
-//		if (gamestatus == GAME_PAUSED){
-//			//draw pause screen
+		bobController.update(delta);
+		enemyController.update(delta);
+		shipController.update(delta);
+		renderer.render();
+		if (gamestatus == GAME_PAUSED){
+			//draw pause screen
 			 pauseBatch = new SpriteBatch();
 		        pauseBatch.begin();
 		        generator = new FreeTypeFontGenerator(Gdx.files.internal("ui/knewave.ttf"));
@@ -83,7 +72,7 @@ public class GameScreen implements Screen, InputProcessor {
 		        font = generator.generateFont(12);
 		      //  font = FreeTypeFontGenerator.createBitmapFont(Gdx.files.internal("ui/knewave.ttf"), FONT_CHARACTERS, 12.5f, 7.5f, 1.0f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 				font.draw(pauseBatch, "wowie zowie", 0, 0);
-//		}
+		}
 		
 	}
 	
@@ -99,13 +88,12 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public void pause() {
-		paused = true;
+		pauseGame();
 	}
 
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
-		paused = false;
 	}
 
 	@Override
@@ -121,8 +109,8 @@ public class GameScreen implements Screen, InputProcessor {
 			//pause
            // ((Game) Gdx.app.getApplicationListener()).setScreen(new PauseScreen());
 			
-			pause();
-		//	gamestatus = GAME_PAUSED;
+			pauseGame();
+			gamestatus = GAME_PAUSED;
 		if (Ship.getState() == State.FLYING) {
 			if (keycode == Keys.LEFT) 
 				shipController.upPressed = true;
@@ -166,7 +154,7 @@ public class GameScreen implements Screen, InputProcessor {
 	}
 
 	public void pauseGame() {
-	
+		gamestatus = GAME_PAUSED;
 	}
 	
 	@Override

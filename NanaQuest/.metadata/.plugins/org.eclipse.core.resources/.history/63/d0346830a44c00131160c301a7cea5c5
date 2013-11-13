@@ -17,7 +17,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
@@ -38,7 +37,7 @@ public class PauseScreen implements Screen {
     private ImageButton resumeButton;
     private ImageButton menuButton;
     private ImageButton exitButton;
-   // private TextButton wowieZowie;
+    private TextButton wowieZowie;
     private BitmapFont font;
     public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     FreeTypeFontGenerator generator;
@@ -103,7 +102,7 @@ public class PauseScreen implements Screen {
         resumeB.down = skin.getDrawable("resume_button_down.fw");
         
         //Test Button
-      //  TextButton wowieZowie = new TextButton()
+        
         font.draw(pauseBatch, "wowie zowie", 10, 10);
 		
         menuButton = new ImageButton(menuB);

@@ -17,7 +17,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
@@ -38,7 +37,6 @@ public class PauseScreen implements Screen {
     private ImageButton resumeButton;
     private ImageButton menuButton;
     private ImageButton exitButton;
-   // private TextButton wowieZowie;
     private BitmapFont font;
     public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     FreeTypeFontGenerator generator;
@@ -75,8 +73,8 @@ public class PauseScreen implements Screen {
         
         font = generator.generateFont(12);
       //  font = FreeTypeFontGenerator.createBitmapFont(Gdx.files.internal("ui/knewave.ttf"), FONT_CHARACTERS, 12.5f, 7.5f, 1.0f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		font.draw(pauseBatch, "wowie zowie", 0, 0);
-        //pauseBatch.
+		font.draw(pauseBatch, "wowie zowie", 10, 10);
+        
         
         atlas = new TextureAtlas(Gdx.files.internal("images/textures/pausePack.txt"));
         skin = new Skin();
@@ -85,7 +83,7 @@ public class PauseScreen implements Screen {
         // Create table
         table = new Table(skin);
         table.setBounds(0, 0, 960, 640);
-      //  table.setBackground(skin.getDrawable("pause_screen.fw"));
+        table.setBackground(skin.getDrawable("pause_screen.fw"));
 		
 		// Menu Button
         ImageButtonStyle menuB = new ImageButtonStyle();
@@ -102,8 +100,6 @@ public class PauseScreen implements Screen {
         resumeB.up = skin.getDrawable("resume_button.fw");
         resumeB.down = skin.getDrawable("resume_button_down.fw");
         
-        //Test Button
-      //  TextButton wowieZowie = new TextButton()
         font.draw(pauseBatch, "wowie zowie", 10, 10);
 		
         menuButton = new ImageButton(menuB);

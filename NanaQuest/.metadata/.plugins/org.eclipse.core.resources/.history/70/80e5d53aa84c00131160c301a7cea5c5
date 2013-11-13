@@ -121,8 +121,8 @@ public class GameScreen implements Screen, InputProcessor {
 			//pause
            // ((Game) Gdx.app.getApplicationListener()).setScreen(new PauseScreen());
 			
-			pause();
-		//	gamestatus = GAME_PAUSED;
+			pauseGame();
+			gamestatus = GAME_PAUSED;
 		if (Ship.getState() == State.FLYING) {
 			if (keycode == Keys.LEFT) 
 				shipController.upPressed = true;
