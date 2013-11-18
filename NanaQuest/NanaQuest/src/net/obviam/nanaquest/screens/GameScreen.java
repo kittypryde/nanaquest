@@ -26,6 +26,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 
 public class GameScreen implements Screen, InputProcessor {
 
@@ -58,6 +60,16 @@ public class GameScreen implements Screen, InputProcessor {
 		enemyController = new EnemyController(world);
 		shipController = new ShipController(world);
 		Gdx.input.setInputProcessor(this);
+//		Sound decisionMakers = Gdx.audio.newSound(
+//			Gdx.files.internal("sounds/DecisionMakers.mp3")
+//		);
+//		decisionMakers.play();
+		
+//		Music nextwave = Gdx.audio.newMusic(
+//				Gdx.files.internal("sounds/DecisionMakers.mp3")
+//				);
+//		nextwave.play();
+		//nextwave.setLooping(true);
 	}
 	
 
@@ -71,11 +83,20 @@ public class GameScreen implements Screen, InputProcessor {
 			bobController.update(delta);
 			enemyController.update(delta);
 			shipController.update(delta);
+//			Music nextwave = Gdx.audio.newMusic(
+//					Gdx.files.internal("sounds/DecisionMakers.mp3")
+//					);
+//			nextwave.play();
 			renderer.render();
+			
 		}
 	
 //		if (gamestatus == GAME_PAUSED){
 //			//draw pause screen
+		else {
+			Ship.getVelocity().x = 0;
+			Ship.getVelocity().y = 0;
+		}
 			 pauseBatch = new SpriteBatch();
 		        pauseBatch.begin();
 		        generator = new FreeTypeFontGenerator(Gdx.files.internal("ui/knewave.ttf"));
@@ -110,6 +131,7 @@ public class GameScreen implements Screen, InputProcessor {
 
 	@Override
 	public void dispose() {
+		
 		Gdx.input.setInputProcessor(null);
 	}
 

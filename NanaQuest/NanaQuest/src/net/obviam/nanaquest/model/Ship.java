@@ -9,7 +9,7 @@ public class Ship {
 
 	public static Vector2 		position = new Vector2();
 	private Vector2 			acceleration = new Vector2(0, 0);
-	private Vector2 			velocity = new Vector2();
+	private static Vector2 			velocity = new Vector2();
 	Rectangle 					bounds = new Rectangle();
 	
 	// size
@@ -39,7 +39,7 @@ public class Ship {
 		return acceleration;
 	}
 
-	public Vector2 getVelocity() {
+	public static Vector2 getVelocity() {
 		return velocity;
 	}
 
