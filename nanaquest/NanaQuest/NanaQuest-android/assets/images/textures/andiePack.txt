@@ -1,0 +1,60 @@
+andiePack.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+andie-01
+  rotate: false
+  xy: 2, 2
+  size: 559, 729
+  orig: 559, 729
+  offset: 0, 0
+  index: -1
+andie-04
+  rotate: false
+  xy: 2, 733
+  size: 559, 729
+  orig: 559, 729
+  offset: 0, 0
+  index: -1
+andie-03
+  rotate: false
+  xy: 1124, 2
+  size: 559, 729
+  orig: 559, 729
+  offset: 0, 0
+  index: -1
+andie-05
+  rotate: false
+  xy: 563, 733
+  size: 559, 729
+  orig: 559, 729
+  offset: 0, 0
+  index: -1
+andie-06
+  rotate: false
+  xy: 1124, 733
+  size: 559, 729
+  orig: 559, 729
+  offset: 0, 0
+  index: -1
+andie_up
+  rotate: false
+  xy: 563, 1464
+  size: 559, 729
+  orig: 559, 729
+  offset: 0, 0
+  index: -1
+andie_down
+  rotate: false
+  xy: 2, 1464
+  size: 559, 729
+  orig: 559, 729
+  offset: 0, 0
+  index: -1
+andie-02
+  rotate: false
+  xy: 563, 2
+  size: 559, 729
+  orig: 559, 729
+  offset: 0, 0
+  index: -1

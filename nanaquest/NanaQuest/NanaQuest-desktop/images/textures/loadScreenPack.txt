@@ -1,0 +1,53 @@
+loadScreenPack.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back_button_down.fw
+  rotate: false
+  xy: 304, 2
+  size: 300, 100
+  orig: 300, 100
+  offset: 0, 0
+  index: -1
+loadUserNameBG.fw
+  rotate: false
+  xy: 2, 206
+  size: 960, 640
+  orig: 960, 640
+  offset: 0, 0
+  index: -1
+username_button.fw
+  rotate: false
+  xy: 404, 848
+  size: 400, 40
+  orig: 400, 40
+  offset: 0, 0
+  index: -1
+delete_all_button_down.fw
+  rotate: false
+  xy: 454, 104
+  size: 450, 100
+  orig: 450, 100
+  offset: 0, 0
+  index: -1
+delete_all_button.fw
+  rotate: false
+  xy: 2, 104
+  size: 450, 100
+  orig: 450, 100
+  offset: 0, 0
+  index: -1
+back_button.fw
+  rotate: false
+  xy: 2, 2
+  size: 300, 100
+  orig: 300, 100
+  offset: 0, 0
+  index: -1
+username_button-down.fw
+  rotate: false
+  xy: 2, 848
+  size: 400, 40
+  orig: 400, 40
+  offset: 0, 0
+  index: -1
