@@ -1,0 +1,32 @@
+forestBossPack.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+forest_boss-3
+  rotate: false
+  xy: 2, 383
+  size: 300, 188
+  orig: 300, 188
+  offset: 0, 0
+  index: -1
+forest_boss-1
+  rotate: false
+  xy: 2, 2
+  size: 300, 189
+  orig: 300, 189
+  offset: 0, 0
+  index: -1
+forest_boss-4
+  rotate: false
+  xy: 2, 573
+  size: 300, 188
+  orig: 300, 188
+  offset: 0, 0
+  index: -1
+forest_boss-2
+  rotate: false
+  xy: 2, 193
+  size: 300, 188
+  orig: 300, 188
+  offset: 0, 0
+  index: -1

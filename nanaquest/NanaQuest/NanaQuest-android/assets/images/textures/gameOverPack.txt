@@ -1,0 +1,53 @@
+gameOverPack.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+restart_level_button.fw
+  rotate: false
+  xy: 404, 746
+  size: 500, 100
+  orig: 500, 100
+  offset: 0, 0
+  index: -1
+GameOverBG.fw
+  rotate: false
+  xy: 2, 2
+  size: 960, 640
+  orig: 960, 640
+  offset: 0, 0
+  index: -1
+main_menu_button_down.fw
+  rotate: false
+  xy: 2, 746
+  size: 400, 100
+  orig: 400, 100
+  offset: 0, 0
+  index: -1
+exit_button_down.fw
+  rotate: false
+  xy: 204, 644
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
+main_menu_button.fw
+  rotate: false
+  xy: 406, 644
+  size: 400, 100
+  orig: 400, 100
+  offset: 0, 0
+  index: -1
+restart_level_button_down.fw
+  rotate: false
+  xy: 2, 848
+  size: 500, 100
+  orig: 500, 100
+  offset: 0, 0
+  index: -1
+exit_button.fw
+  rotate: false
+  xy: 2, 644
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
