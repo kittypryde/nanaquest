@@ -76,7 +76,6 @@ public class GameScreen implements Screen, InputProcessor {
 	@Override
 	public void render(float delta) {
 		
-	
 		if (!paused){
 			Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -88,22 +87,23 @@ public class GameScreen implements Screen, InputProcessor {
 //					Gdx.files.internal("sounds/DecisionMakers.mp3")
 //					);
 //			nextwave.play();
-//			renderer.render();
+			renderer.render();
 			
-		} else {
+		}
+	
+//		if (gamestatus == GAME_PAUSED){
+//			//draw pause screen
+		else {
+			Ship.getVelocity().x = 0;
+			Ship.getVelocity().y = 0;
+		}
 			 pauseBatch = new SpriteBatch();
 		        pauseBatch.begin();
 		        generator = new FreeTypeFontGenerator(Gdx.files.internal("ui/knewave.ttf"));
 		        
 		        font = generator.generateFont(12);
 		      //  font = FreeTypeFontGenerator.createBitmapFont(Gdx.files.internal("ui/knewave.ttf"), FONT_CHARACTERS, 12.5f, 7.5f, 1.0f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-				font.draw(pauseBatch, "wowie zowie", 50, 50);
-		}
-		renderer.render();
-//		if (gamestatus == GAME_PAUSED){
-//			//draw pause screen
-		
-			
+				font.draw(pauseBatch, "wowie zowie", 0, 0);
 //		}
 		
 	}

@@ -88,7 +88,7 @@ public class GameScreen implements Screen, InputProcessor {
 //					Gdx.files.internal("sounds/DecisionMakers.mp3")
 //					);
 //			nextwave.play();
-//			renderer.render();
+			renderer.render();
 			
 		} else {
 			 pauseBatch = new SpriteBatch();
@@ -99,7 +99,7 @@ public class GameScreen implements Screen, InputProcessor {
 		      //  font = FreeTypeFontGenerator.createBitmapFont(Gdx.files.internal("ui/knewave.ttf"), FONT_CHARACTERS, 12.5f, 7.5f, 1.0f, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 				font.draw(pauseBatch, "wowie zowie", 50, 50);
 		}
-		renderer.render();
+	
 //		if (gamestatus == GAME_PAUSED){
 //			//draw pause screen
 		
